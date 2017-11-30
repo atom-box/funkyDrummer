@@ -17,16 +17,26 @@ hiHats = [];
 rideCymbals  = [];
 
 const initializeArray = (x) =>
-/* If given an empty drum array, fill it with LOOPSIZE occurances of 'false' 
+/* If given an empty drum array, fill it with HOWMANYBEATS 
+occurances of 'false' 
 
-			true = make a sound on that beat-number
-			false = remain silent on that beat-number */
+	true = make a sound on that beat-number
+	false = remain silent on that beat-number */
 {
-	const loopSize = 16;
-	for ( let i = 0; i < loopSize; i++)
+	const howManyBeats = 16;
+	x.fill
+	for ( let i = 0; i < howManyBeats; i++)
 	{
 		x[i] = false;
 	}
+	console.log("Inside the array: ");
+	console.log( x);
+
+/*
+	let drums = Array(howManyBeats);
+	drums.fill(false);
+	x = drums;
+	*/
 };
 
 const toggleDrum = (which, where)=>
@@ -35,9 +45,31 @@ const toggleDrum = (which, where)=>
 	which[where] = !which[where];
 };
 
+const clear =(a)=>
+{
+/* Set all elements in the ARG to FALSE.  */
+	for (let i = 0; i < a.length; i++)
+	{
+		a[i] = false;
+	};
+};
+
+
+const invert = (n) =>
+{
+	for (let i = 0; i < n.length; i++)
+	{
+		n[i] = !n[i];
+	}
+};
+
 initializeArray(snares);
-console.log(snares);
+	console.log("Outside the array: ");
+	console.log(snares);
+
 toggleDrum(snares, 3);
+toggleDrum(snares, 7);
+toggleDrum(rideCymbals, 3);
+invert(snares);
 console.log(snares);
-
-
+clear(snares);
