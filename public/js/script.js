@@ -10,44 +10,38 @@ This program was completed for the Codecademy course "Build Your Own API's"
 Written by Evan Genest! November 23 to 28, 2017 */
 
 /* Initialize four arrays that can hold true-or-false to represent sound-or-silent. */
-let kicks = new Array(16).fill(false);
-let snares = new Array(16).fill(false);
-let hiHats = new Array(16).fill(false);
-let rideCymbals = new Array(16).fill(false);
+const MAX_BEATS = 16;
+let kicks = new Array(MAX_BEATS).fill(false);
+let snares = new Array(MAX_BEATS).fill(false);
+let hiHats = new Array(MAX_BEATS).fill(false);
+let rideCymbals = new Array(MAX_BEATS).fill(false);
 
-/*
-let snares = []; 
-hiHats = []; 
-rideCymbals  = [];
-
-const initializeArray = (x) =>
-/* If given an empty drum array, fill it with HOWMANYBEATS 
-occurances of 'false' 
-
-	true = make a sound on that beat-number
-	false = remain silent on that beat-number 
+const notAnArray =(which)=>
 {
-	const howManyBeats = 16;
-	x.fill
-	for ( let i = 0; i < howManyBeats; i++)
-	{
-		x[i] = false;
-	}
-	console.log("Inside the array: ");
-	console.log( x);
-
-/*
-	let drums = Array(howManyBeats);
-	drums.fill(false);
-	x = drums;
-	
+	let w = which;
+	if (w !== 'kicks' &&
+		w !== 'snares' &&
+		w !== 'hiHats' &&
+		w !== 'rideCymbals') 
+			return true;
+		else 
+		return false;
 };
-*/
 
+const notAnIndex =(where)=>
+{
+	if (where >= MAX_BEATS || where < 0 )
+		return true;
+	else 
+		return false;
+};
 
 const toggleDrum = (which, where)=>
 /* Flip a single beat.  If it is on, turn it off, and vice versa. */
 {
+	if (notAnArray(which)) return "Not an array !!!";
+	if (notAnIndex(where)) return "Array out of index.";
+
 	console.log(`Walking in [${which}] = = = = = = = = = = = = >`);
 	switch (which){
 		case 'kicks': 
@@ -70,24 +64,73 @@ const toggleDrum = (which, where)=>
 	};
 };
 
-const clear =(a)=>
+const clear =(which)=>
 {
 /* Set all elements in the ARG to FALSE.  */
-	for (let i = 0; i < a.length; i++)
+	for (let i = 0; i < which.length; i++)
 	{
-		a[i] = false;
+		which[i] = false;
 	};
 };
 
 
-const invert = (n) =>
+const invert = (which) =>
 {
-	for (let i = 0; i < n.length; i++)
-	{
-		n[i] = !n[i];
-	}
+
+	console.log(`Passed in: [${which}] invertinvertinvertinvertinvertinvertinvert`);
+	let newDrumsA;
+	switch (which){
+		case 'kicks': 
+			console.log(`Before: <${kicks}>`);
+			for (let i = 0; i < kicks.length; i++)
+			{
+				kicks[i] = !kicks[i];
+			}
+			console.log(`After: <${kicks}>`);
+			break;
+
+		case 'snares': 
+			for (let i = 0; i < snares.length; i++)
+			{
+				snares[i] = !snares[i];
+			}
+			console.log(`Inverting done: <${snares}>`);
+			break;
+		case 'hiHats': 
+			for (let i = 0; i < hiHats.length; i++)
+			{
+				hiHats[i] = !hiHats[i];
+			}
+			console.log(`Inverting done: <${hiHats}>`);
+			break;
+		case 'rideCymbals': 
+			for (let i = 0; i < rideCymbals.length; i++)
+			{
+				rideCymbals[i] = !rideCymbals[i];
+			}
+			console.log(`Inverting done: <${rideCymbals}>`);
+			break;
+ 		
+		};
 };
 
+/*
+console.log(toggleDrum('hiHats', 3));
+console.log(toggleDrum('bongos', 3));
+console.log(toggleDrum('hiHats', 0));
+console.log(toggleDrum('kicks',-1));
+*/
+
+/*
+console.log(
+notAnIndex(-1),
+notAnIndex(16),
+notAnIndex(0),
+notAnArray('cindy'),
+notAnArray('cindy'),
+notAnArray('hiHats')
+);
+*/
 /* evTest!  
 toggleDrum(snares, 7); toggleDrum(snares, 8);toggleDrum(snares, 9); toggleDrum(snares, 10);
 toggleDrum(snares, 8); // SHOULD undo 8
