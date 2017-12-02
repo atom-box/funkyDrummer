@@ -39,8 +39,8 @@ const notAnIndex =(where)=>
 const toggleDrum = (which, where)=>
 /* Flip a single beat.  If it is on, turn it off, and vice versa. */
 {
-	if (notAnArray(which)) return "Not an array !!!";
-	if (notAnIndex(where)) return "Array out of index.";
+	if (notAnArray(which)) return "Not an array !!!"; 		// EDGE CASE
+	if (notAnIndex(where)) return "Array out of index.";	// EDGE CASE
 
 	console.log(`Walking in [${which}] = = = = = = = = = = = = >`);
 	switch (which){
@@ -67,6 +67,7 @@ const toggleDrum = (which, where)=>
 const clear =(which)=>
 {
 /* Set all elements in the ARG to FALSE.  */
+	if (notAnArray(which)) return "Not an array !!!"; // EDGE CASE
 	for (let i = 0; i < which.length; i++)
 	{
 		which[i] = false;
@@ -76,7 +77,7 @@ const clear =(which)=>
 
 const invert = (which) =>
 {
-
+	if (notAnArray(which)) return "Not an array !!!"; // EDGE CASE
 	console.log(`Passed in: [${which}] invertinvertinvertinvertinvertinvertinvert`);
 	let newDrumsA;
 	switch (which){
