@@ -68,10 +68,35 @@ const clear =(which)=>
 {
 /* Set all elements in the ARG to FALSE.  */
 	if (notAnArray(which)) return "Not an array !!!"; // EDGE CASE
-	for (let i = 0; i < which.length; i++)
-	{
-		which[i] = false;
+
+	switch (which){
+		case 'kicks': 
+			for (let i = 0; i < kicks.length; i++)
+			{
+				kicks[i] = false;
+			}
+			break;
+		case 'snares': 
+			for (let i = 0; i < snares.length; i++)
+			{
+				snares[i] = false;
+			}
+			break;
+		case 'hiHats': 
+			for (let i = 0; i < hiHats.length; i++)
+			{
+				hiHats[i] = false;
+			}
+			break;
+		case 'rideCymbals': 
+			for (let i = 0; i < rideCymbals.length; i++)
+			{
+				rideCymbals[i] = false;
+			}
+			break;
 	};
+
+
 };
 
 
