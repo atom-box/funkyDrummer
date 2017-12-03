@@ -1,7 +1,8 @@
 /* 
 PROJECT V1.0  FUNKY DRUMMER 
 THIS FILE: script.js   
-November 27, 2017 By Evan Genest
+started November 27, 2017 By Evan Genest
+finished December 3, 2017
 https://github.com/atom-box/funkyDrummer    
 Twitter@MisterGenest 
 
